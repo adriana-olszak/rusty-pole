@@ -1,0 +1,51 @@
+[package]
+name = "rusty-pole"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1.34.0", features = ["full"] }
+# Web Framework and HTTP
+axum = "0.7.0"                                    # Core web framework
+axum-login = { version = "0.16.0" }               # Authentication middleware for Axum
+axum-messages = "0.7.0"                           # Flash messages support for Axum
+http = "1.0.0"                                    # HTTP types and status codes
+hyper = "1.0.1"                                   # HTTP implementation
+tower = "0.4.13"                                  # Middleware framework
+tower-http = { version = "0.5", features = ["trace"] } # HTTP-specific middleware
+tower-sessions = { version = "0.13.0", default-features = false, features = [
+    "signed",
+] }
+tower-sessions-sqlx-store = { version = "0.14.0", features = ["sqlite"] }
+
+
+# Template Engine
+askama = { version = "0.12.1", features = ["with-axum"] }    # Template engine for Rust
+askama_axum = "0.4.0"
+
+# Database
+sqlx = { version = "0.8.1", features = ["sqlite", "time", "runtime-tokio"] } # Async SQL toolkit
+
+# Serialization and Validation
+serde = "1"                                      # Serialization framework
+validator = { version = "0.18.1", features = ["derive"] } # Data validation
+
+# Configuration and Environment
+config = "0.14.0"                                # Configuration management
+dotenv = "0.15.0"                                # .env file loading
+
+# Logging and Tracing
+tracing = "0.1"                                  # Application instrumentation framework
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
+
+# Error Handling
+anyhow = "1.0.48"                                # Error handling
+thiserror = "1.0.56"                             # Error definition
+
+# Utilities
+async-trait = "0.1.74"                           # Async trait support
+itertools = "0.10.1"                             # Iterator utilities
+rand = "0.8.4"                                   # Random number generation
+time = { version = "0.3", features = ["formatting"] } # Time utilities
+uuid = { version = "1.0", features = ["v4", "serde"] } # UUID generation
+password-auth = "1.0.0"
